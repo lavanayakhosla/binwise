@@ -25,7 +25,7 @@ function App() {
           <Route path="/" element={
             <>
               <section className="hero">
-                <h1>Welcome to ScrapUncle</h1>
+                <h1>Welcome to BinWise</h1>
                 <p>Your one-stop solution for all scrap-related services.</p>
                 <button>Get Started</button>
               </section>
