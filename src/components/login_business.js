@@ -7,23 +7,14 @@ export const handleLogin = (email, password) => {
   // Add your API call or authentication logic here
 };
 
-const [showLogin, setShowLogin] = useState(false); // State for toggling login modal
-
-  const handleLoginClick = () => {
-    setShowLogin(true); // Show login modal
-  };
-
-  const handleCloseLogin = () => {
-    setShowLogin(false); // Hide login modal
-  };
-
+// LoginForm component
 const LoginForm = ({ onLogin }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(""); // State for email
+  const [password, setPassword] = useState(""); // State for password
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin(email, password);
+    onLogin(email, password); // Pass email and password to onLogin function
   };
 
   return (
@@ -37,7 +28,7 @@ const LoginForm = ({ onLogin }) => {
           id="email"
           placeholder="Enter your email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)} // Update email state
         />
 
         <label htmlFor="password">Password</label>
@@ -46,7 +37,7 @@ const LoginForm = ({ onLogin }) => {
           id="password"
           placeholder="Enter your password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)} // Update password state
         />
 
         <button type="submit" className="login-button">
