@@ -1,5 +1,5 @@
 /* Services Page Styling */
-.services-page {
+/* .services-page {
     padding: 40px;
     background-color: #f1faee;
   }
@@ -64,7 +64,7 @@
   }
   
   /* Additional Services Section */
-  .additional-services {
+  /* .additional-services {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
@@ -99,4 +99,99 @@
   .additional-services button:hover {
     background-color: #f4a261;
   }
-  
+   */ */
+   /* Services.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.services-page {
+  background: linear-gradient(to bottom, #e8f5e9, #ffffff);
+  min-height: 100vh;
+}
+
+.header {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  text-align: center;
+  padding: 2rem;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: gray;
+  margin-bottom: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: gray;
+  margin-bottom: 1rem;
+}
+
+.button {
+  background: #ffeb3b;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: #fdd835;
+}
