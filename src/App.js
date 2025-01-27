@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React  from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ServicesPage from "./components/ServicesPage"; // Ensure the file exists
 import "./App.css";
+import ScrapRates from "./components/scrapRates";
 import affordable from "./assets/image_copy2.png";
 import dustbin from "./assets/image_copy.png";
 import reliable from "./assets/image.png";
@@ -28,7 +29,7 @@ function App() {
                 <Link to="/services">Services</Link>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <Link to="/ScrapRates">Scrap Rates</Link>
               </li>
               <li>
                 <Link to="/contact">Contact</Link>
@@ -86,8 +87,8 @@ function App() {
           <Route path="/services" element={<ServicesPage />} />
 
           {/* Placeholder for other pages */}
-          <Route path="/about" element={<h2>About Us Page</h2>} />
-          <Route path="/contact" element={<h2>Contact Us Page</h2>} />
+          <Route path="/scrapRates" element={<ScrapRates />} />
+          <Route path="/contact" element={<h2>Contact us</h2>} />
         </Routes>
 
         {/* Footer */}
