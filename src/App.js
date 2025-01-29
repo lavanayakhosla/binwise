@@ -1,4 +1,4 @@
-import React  from "react";
+import {React } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ServicesPage from "./components/ServicesPage"; // Ensure the file exists
 import "./App.css";
@@ -8,6 +8,9 @@ import dustbin from "./assets/image_copy.png";
 import reliable from "./assets/image.png";
 import logo from "./assets/Screenshot 2025-01-26 013052.png";
 import earth from "./assets/Screenshot 2025-01-25 234055.png";
+import BuyScrap from "./components/BuyScrap";
+import Login from "./components/login";
+import RegisteredAsScrapDealer from "./components/Register_as_scrap_dealer"
 
 
 function App() {
@@ -38,7 +41,7 @@ function App() {
                 <Link to="/login" >Login</Link>
               </li>
               <li>
-                <Link to="/DealerRegistrationForm">Sign up</Link>
+                <Link to="/signup">Sign up</Link>
               </li>
             </ul>
           </nav>
@@ -88,7 +91,10 @@ function App() {
 
           {/* Placeholder for other pages */}
           <Route path="/scrapRates" element={<ScrapRates />} />
+          <Route path="/login" element = {<Login/>}/>
           <Route path="/contact" element={<h2>Contact us</h2>} />
+          <Route path="/signup" element= {<RegisteredAsScrapDealer/>}/> 
+          <Route path="/BuyScrap" element={<BuyScrap />} />
         </Routes>
 
         {/* Footer */}

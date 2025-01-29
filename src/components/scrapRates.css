@@ -99,5 +99,22 @@ body {
     padding: 0.5rem;
     border-radius: 5px;
     display: inline-block;
+    text-decoration: none;
+  }
+  .buy-button{
+    background-color: #06a10e;
+    border: 0;
+    width: 160px;
+    padding: 0.5rem;
+    margin-top: 15px;
+    color: white;
+    font-weight: 700;
+    border-radius: 0.6rem;
+    font-size: medium;
+  }
+  .buy-button:hover{
+    cursor: pointer;
+    background-color: #024707;
+    border: 0;
   }
   
