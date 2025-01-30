@@ -68,9 +68,9 @@ if(apiresponse.payload?.data.success){
           <div className="container">
             <h3>Municipality Office Login</h3>
             <form className="form-container">
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
-            <button>Login</button>
+            <input type="text" name='email' required onChange={handleinput} placeholder="John@example.com" />
+            <input type="password" name="password" required onChange={handleinput} placeholder="Enter your password" />
+            <button onClick={handlesubmit}>Login</button>
             </form>
             <p>Don't Have a account <a href="./SignUp">Sign up</a></p>
           </div>
@@ -80,9 +80,9 @@ if(apiresponse.payload?.data.success){
           <div className="conatiner">
             <form className="form-container">
             <h3>Home/Business Login</h3>
-            <input type="text" placeholder="Username" />
-            <input type="password" placeholder="Password" />
-            <button>Login</button>
+            <input type="text" name='email' required onChange={handleinput} placeholder="John@example.com" />
+            <input type="password" name="password" required onChange={handleinput} placeholder="Enter your password" />
+            <button onClick={handlesubmit}>Login</button>
             </form>
             <p>Don't Have a account <a href="./SignUp">Sign up</a></p>
           </div>
