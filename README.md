@@ -1,3 +1,16 @@
+To get started:
+split terminal in 2 terminal 
+IN 1st TERMINAL:
+1.cd BinWise Backend
+2.npm i
+3.npx nodemon
+IN 2nd TERMINAL:
+1.cd BinWise Frontend
+2.npm i
+3.npm run dev/npm start
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
