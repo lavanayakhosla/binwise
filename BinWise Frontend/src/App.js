@@ -13,7 +13,7 @@ import earth from "./assets/Screenshot 2025-01-25 234055.png";
 import BuyScrap from "./components/BuyScrap";
 import Login from "./components/login";
 import RegisteredAsScrapDealer from "./components/Register_as_scrap_dealer"
-import { logout } from "./Redux/Slices/AuthSlice";
+
 
 function App() {
   const dispatch= useDispatch();
@@ -126,11 +126,12 @@ function App() {
 
           {/* Services Route */}
           <Route path="/services" element={<ServicesPage />} />
-
+          <Route path="/DragAndDropGame" element={<DragAndDropGame />} />
+          <Route path="/quiz" element={<Quiz />} />
           {/* Placeholder for other pages */}
           <Route path="/scrapRates" element={<ScrapRates />} />
           <Route path="/login" element = {<Login/>}/>
-          <Route path="/contact" element={<h2>Contact us</h2>} />
+          <Route path="/game" element={ < Game />} />
           <Route path="/signup" element= {<RegisteredAsScrapDealer/>}/> 
           <Route path="/BuyScrap" element={<BuyScrap />} />
         </Routes>
