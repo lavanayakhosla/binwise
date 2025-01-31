@@ -1,5 +1,5 @@
 /* Center the form */
-.container {
+.continer {
     width: 70%;
     margin: 50px auto;
     background: white;
@@ -20,6 +20,8 @@
   .scrap-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .scrap-form label {
@@ -44,8 +46,8 @@
   .register-btn {
     background-color: #5dc85b;
     color: white;
-    font-size: 18px;
-    padding: 12px;
+    font-size: 26px;
+    padding: 19px;
     border: none;
     border-radius: 5px;
     cursor: pointer;

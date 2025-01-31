@@ -80,9 +80,10 @@ const ScrapDealerForm = () => {
 
 
   return (
-    <div className="container">
-      <h2 className="form-title">Become a Registered Scrap Dealer</h2>
+    <div className="continer">
+      
       <form className="scrap-form">
+      <h2 className="form-title">Become a Registered Scrap Dealer</h2>
         <label>Name</label>
         <input type="text" name="name" onChange={handleinput} required placeholder="Enter your name" />
 

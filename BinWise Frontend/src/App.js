@@ -3,16 +3,17 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 //import ServicesPage from "./components/ServicesPage"; // Ensure the file exists
 import "./App.css";
 import { useState , useEffect} from "react";
-import ScrapRates from "./components/scrapRates";
+//import ScrapRates from "./components/scrapRates";
 import affordable from "./assets/image_copy2.png";
 import { useSelector , useDispatch } from 'react-redux'
 import dustbin from "./assets/image_copy.png";
 import reliable from "./assets/image.png";
 import logo from "./assets/Screenshot 2025-01-26 013052.png";
 import earth from "./assets/Screenshot 2025-01-25 234055.png";
+import {logout} from "./Redux/Slices/AuthSlice"
 //import BuyScrap from "./components/BuyScrap";
-import Login from "./components/login";
-import RegisteredAsScrapDealer from "./components/Register_as_scrap_dealer"
+//import Login from "./components/login";
+//import RegisteredAsScrapDealer from "./components/Register_as_scrap_dealer"
 import BuyScrap from "./components/BuyScrap";
 import DragAndDropGame from "./components/DragAndDropGame";
 import Game from "./components/Game";
@@ -43,7 +44,7 @@ function App() {
 
  async function handlelogout(e){
   e.preventDefault();
-  // localStorage.setItem('isLoggedIn')=false
+  //localStorage.setItem('isLoggedIn')=false
   setlog(false);
   dispatch(logout());
 }

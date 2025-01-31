@@ -54,44 +54,51 @@ if(apiresponse.payload?.data.success){
       case "scrapdealer":
         return (
           <div className="container">
-            <h3>Scrap Dealer Login</h3>
+             
             <form className="form-container">
+            <h3>Scrap Dealer Login</h3>
             <input type="text" name='email' required onChange={handleinput} placeholder="John@example.com" />
             <input type="password" name="password" required onChange={handleinput} placeholder="Enter your password" />
             <button onClick={handlesubmit}>Login</button>
-            </form>
             <p>Don't Have a account <a href="./SignUp">Sign up</a></p>
+            </form>
+             
           </div>
         );
       case "municipality":
         return (
           <div className="container">
-            <h3>Municipality Office Login</h3>
             <form className="form-container">
+            <h3>Municipality Office login</h3>
             <input type="text" name='email' required onChange={handleinput} placeholder="John@example.com" />
             <input type="password" name="password" required onChange={handleinput} placeholder="Enter your password" />
             <button onClick={handlesubmit}>Login</button>
-            </form>
             <p>Don't Have a account <a href="./SignUp">Sign up</a></p>
+            </form>
+             
           </div>
         );
       case "homebusiness":
         return (
-          <div className="conatiner">
+          <div className="container">
+             
             <form className="form-container">
             <h3>Home/Business Login</h3>
             <input type="text" name='email' required onChange={handleinput} placeholder="John@example.com" />
             <input type="password" name="password" required onChange={handleinput} placeholder="Enter your password" />
             <button onClick={handlesubmit}>Login</button>
-            </form>
             <p>Don't Have a account <a href="./SignUp">Sign up</a></p>
+            </form>
+             
           </div>
         );
       default:
         return (
           <div className="container">
-            <h2>Select Your Role to Login</h2>
-            <button className="select-btn" onClick={() => handleLoginClick("scrapdealer")}>
+             
+             <div className="all-optn">
+             <h2>Select Your Role to Login</h2>
+             <button className="select-btn" onClick={() => handleLoginClick("scrapdealer")}>
               Scrap Dealer
             </button>
             <button className="select-btn" onClick={() => handleLoginClick("municipality")}>
@@ -100,6 +107,7 @@ if(apiresponse.payload?.data.success){
             <button className="select-btn" onClick={() => handleLoginClick("homebusiness")}>
               Home/Business
             </button>
+             </div>
           </div>
         );
     }
