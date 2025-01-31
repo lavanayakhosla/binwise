@@ -3,20 +3,20 @@ import axiosInstance from "../../Helpers/AxiosInstance";
 import toast from "react-hot-toast";
 import { act } from "react";
 const initialState= {
-    isLoggedIn: localStorage.getItem('isLoggedIn')=='true' || false,
+    // isLoggedIn: localStorage.getItem('isLoggedIn')=='true' || false,
     // role: localStorage.getItem('role') || '', 
     // data: JSON.parse(localStorage.getItem('data')) || {}
 };
-export const createAccount =createAsyncThunk('auth/createaccount',async (data)=>{
+export const createAccount =createAsyncThunk('buyscrap',async (data)=>{
     console.log("incoming data",data);
     try {
         
-        const response= axiosInstance.post('/wastepicker',data);
+        const response= axiosInstance.post('/buyScrap',data);
         toast.promise(response,{
             success:(resolvedpromise)=>{
                 return resolvedpromise?.data?.message
             },
-            loading:"Hold tight, we are registering",
+            loading:"Hold tight",
             error:"Something went wrong"
         })
         return response
@@ -28,7 +28,7 @@ export const createAccount =createAsyncThunk('auth/createaccount',async (data)=>
 
 
 const AuthSlice = createSlice({
-    name:'auth',
+    name:'product',
     initialState,
     reducers:{},
   

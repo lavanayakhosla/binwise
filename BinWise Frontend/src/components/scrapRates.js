@@ -27,7 +27,9 @@ const ScrapRates = () => {
   const navigate = useNavigate(); // ✅ Hook for navigation
 
   const handleBuyNow = () => {
-    navigate("/BuyScrap"); // ✅ Navigate to BuyScrap on button click
+    let log=localStorage.getItem('isLoggedIn')=='true'
+    if(log) navigate("/BuyScrap"); // ✅ Navigate to BuyScrap on button click
+    else navigate("/login")
   };
 
   return (

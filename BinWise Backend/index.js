@@ -2,6 +2,7 @@ const express=require('express')
 const { PORT } = require('./config/serverConfig.js')
 const connectDb = require('./config/dbConfig.js')
 const userRouter=require('./routes/userRoutes.js')
+const scrapRouter=require('./routes/scraproutes.js')
 
 const cookieParser=require('cookie-parser')
 // const isLoggedIN=require('./validation/authvalidator.js')
@@ -47,6 +48,7 @@ app.get('/ping',isLoggedIn,async(req,res)=>{
 app.use('/auth',authrouter)
 app.use('/users',userRouter)
 app.use('/wastepicker',productRouter)
+app.use('/buyScrap',scrapRouter)
 // app.use('/carts',cartRoute)
 // app.use('/orders',orderRoute)
 app.listen(serverconfig.PORT,async ()=>{

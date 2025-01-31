@@ -2,8 +2,10 @@ import {React } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ServicesPage from "./components/ServicesPage"; // Ensure the file exists
 import "./App.css";
+import { useState , useEffect} from "react";
 import ScrapRates from "./components/scrapRates";
 import affordable from "./assets/image_copy2.png";
+import { useSelector , useDispatch } from 'react-redux'
 import dustbin from "./assets/image_copy.png";
 import reliable from "./assets/image.png";
 import logo from "./assets/Screenshot 2025-01-26 013052.png";
@@ -11,10 +13,31 @@ import earth from "./assets/Screenshot 2025-01-25 234055.png";
 import BuyScrap from "./components/BuyScrap";
 import Login from "./components/login";
 import RegisteredAsScrapDealer from "./components/Register_as_scrap_dealer"
-
+import { logout } from "./Redux/Slices/AuthSlice";
 
 function App() {
- 
+  const dispatch= useDispatch();
+  const isLoggedIn= useSelector((state)=> state.auth.isLoggedIn)
+  console.log(isLoggedIn)
+
+  const [log, setlog] = useState(localStorage.getItem('isLoggedIn') === 'true');
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      setlog(localStorage.getItem("isLoggedIn") === "true");
+    };
+
+    checkLoginStatus(); // Initial check when component mounts
+
+    window.addEventListener("storage", checkLoginStatus);
+    return () => window.removeEventListener("storage", checkLoginStatus);
+  }, []);
+
+ async function handlelogout(e){
+  e.preventDefault();
+  // localStorage.setItem('isLoggedIn')=false
+  setlog(false);
+  dispatch(logout());
+}
   return (
     <Router>
       <div className="App">
@@ -37,12 +60,27 @@ function App() {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
-              <li>
-                <Link to="/login" >Login</Link>
-              </li>
-              <li>
-                <Link to="/signup">Sign up</Link>
-              </li>
+              {
+                isLoggedIn?
+                (
+                  <li>
+                  <Link onClick={handlelogout} >Logout</Link>
+                </li>
+                  )
+              :
+
+              (
+                <>
+            <li>
+              <Link  to="/login" >Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign up</Link>
+            </li>
+            </>
+            )
+
+        }
             </ul>
           </nav>
         </header>

@@ -1,13 +1,13 @@
-const {createproduct,findproduct,findproductbyid,deleteproductbyid}=require('../services/productService')
+const {createproduct,findproduct,findproductbyid,deleteproductbyid}=require('../services/scrapservice')
 async function createProduct(req,res){
     try{
     const response=await createproduct({
         name:req.body.name,
-        photo:req.file?.path,
-        assignedZone:req.body.assignedZone,
-        safetyGearIssued:req.body.safetyGearIssued,
-        address:req.body.address,
-        phone:req.body.phone,
+        phone:req.body?.phone,
+        state:req.body?.state,
+        municipality:req.body?.municipality,
+        district:req.body?.district,
+        quantity:req.body?.quantity,
         typeofscrap:req.body.typeofscrap
 
     })
@@ -16,7 +16,7 @@ async function createProduct(req,res){
         success:true,
         data:response,
         error:{},
-        message:"successfully registered"
+        message:"successfully ordered the scrap"
     })
 }catch(error){
     console.log(error)
