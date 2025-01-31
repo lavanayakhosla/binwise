@@ -67,7 +67,7 @@ function App() {
                 <Link to="/ScrapRates">Scrap Rates</Link>
               </li>
               <li>
-                <Link to="/contact">Contact</Link>
+                <Link to="/game">Games</Link>
               </li>
               {
                 isLoggedIn?
