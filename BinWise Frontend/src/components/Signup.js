@@ -3,7 +3,11 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createAccount } from '../Redux/Slices/ProductSlice';
+<<<<<<< HEAD:BinWise Frontend/src/components/Signup.js
 import "./signup.css"; // Import the CSS file
+=======
+import "./ScrapDealerFrom.css"; // Import the CSS file
+>>>>>>> 7a539a11ab0c0f2972c20f081011639d28609862:BinWise Frontend/src/components/Register_as_scrap_dealer.js
 
 
 const ScrapDealerForm= () => {
