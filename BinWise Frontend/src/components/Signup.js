@@ -3,13 +3,13 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createAccount } from '../Redux/Slices/ProductSlice';
-<<<<<<< HEAD
+ 
 import "./signup.css"; // Import the CSS file
-=======
+ 
 import Registerashome from './Register_as_home';
 import RegisterAsMunicipality from './Register_as_municipality';
 import "./signup.css"
-import "./Register_as_scrap_dealer.css"; 
+import "./Registered_as_scrap_dealer.css"; 
 
 const ScrapDealerForm = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const ScrapDealerForm = () => {
     password: '',
     photo: null,
   });
->>>>>>> 4691138b7cea2100fbe5221b8f8dada4856c85f6
+
 
   function handleInput(e) {
     const { name, value } = e.target;
@@ -84,7 +84,7 @@ const ScrapDealerForm = () => {
     switch (selectedRole) {
       case "scrapdealer":
         return (
-          <div className="container">
+          
             <form className="scrap-form" onSubmit={handleSubmit}>
               <h2 className="form-title">Become a Registered Scrap Dealer</h2>
               
@@ -108,7 +108,7 @@ const ScrapDealerForm = () => {
               
               <button type="submit" className="register-btn">Register</button>
             </form>
-          </div>
+          
         );
       case "municipality":
         return <RegisterAsMunicipality />;
@@ -116,7 +116,7 @@ const ScrapDealerForm = () => {
         return <Registerashome />;
       default:
         return (
-          <div className="container">
+          <div className="all-optns">
             <h2>Select Your Role to Register</h2>
             <button className="select-btn" onClick={() => handleRegisterClick("scrapdealer")}>
               Scrap Dealer

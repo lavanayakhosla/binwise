@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createAccount } from '../Redux/Slices/ProductSlice';
-import "./Register_as_scrap_dealer.css"; // Import the CSS file
+import "./signup.css"; // Import the CSS file
 
 const MunicipalityForm = () => {
     const navigate = useNavigate();
@@ -78,7 +78,7 @@ const MunicipalityForm = () => {
     }
 
     return (
-        <div className="container">
+        <div className="continer">
             <form className="scrap-form" onSubmit={handleSubmit}>
                 <h2 className="form-title">Register as Municipality</h2>
 
