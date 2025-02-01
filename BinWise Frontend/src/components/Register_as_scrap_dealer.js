@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createAccount } from '../Redux/Slices/ProductSlice';
-import "./Register.css"; // Import the CSS file
+import "./ScrapDealerFrom.css"; // Import the CSS file
 
 
 const ScrapDealerForm= () => {
