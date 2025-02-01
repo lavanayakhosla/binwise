@@ -2,7 +2,9 @@ import React from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faRecycle, faTruck, faDollarSign } from '@fortawesome/free-solid-svg-icons';
 import './ServicesPage.css';
-
+import Registered_as_scrap_dealer from "./Registered_as_scrap_dealer"
+import home_business from "./home_business"
+import Muncipality from "./Muncipality"
 // function ServicesPage() {
 //   return (
 //     <div className="services-page">
@@ -75,28 +77,28 @@ const Services = () => {
             title="Scrap Collection from Home/Business"
             description="We collect all kinds of scrap materials from your home or enterprise. No job is too big or small!"
             buttonLabel="Schedule Pickup"
-            buttonLink="#"
+            buttonLink="/home_business"
           />
           <ServiceCard
             icon={<span>&#128666;</span>}
             title="Scrap Collection from Municipality"
             description="We offer the most affordable prices for bulk scrap."
             buttonLabel="Schedule Pickup"
-            buttonLink="#"
+            buttonLink="/Muncipality"
           />
           <ServiceCard
             icon={<span>&#36;</span>}
             title="Buy Scrap Materials"
             description="We provide competitive and transparent pricing for all scrap materials, ensuring you get the best deal."
             buttonLabel="Get Quote"
-            buttonLink="#"
+            buttonLink=" "
           />
           <ServiceCard
             icon={<span>&#128522;</span>}
             title="Registered Scrap Dealer"
             description="Become a registered Scrap Dealer! Get trained and verified."
             buttonLabel="Register With Us"
-            buttonLink="#"
+            buttonLink="/Registered_as_scrap_dealer"
           />
         </div>
       </main>

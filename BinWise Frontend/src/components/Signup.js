@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createAccount } from '../Redux/Slices/ProductSlice';
-import "./Register.css"; // Import the CSS file
+import "./signup.css"; // Import the CSS file
 
 
 const ScrapDealerForm= () => {
@@ -178,6 +178,7 @@ const ScrapDealerForm= () => {
       default:
         return (
             <div className="container">
+            <div className="all-optns">
             <h2>Select Your Role to Register</h2>
             <button className="select-btn" onClick={() => handleRegisterClick("scrapdealer")}>
               Scrap Dealer
@@ -188,6 +189,7 @@ const ScrapDealerForm= () => {
             <button className="select-btn" onClick={() => handleRegisterClick("homebusiness")}>
               Home/Business
             </button>
+            </div>
           </div>
         );
         

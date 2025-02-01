@@ -11,18 +11,17 @@ import reliable from "./assets/image.png";
 import logo from "./assets/Screenshot 2025-01-26 013052.png";
 import earth from "./assets/Screenshot 2025-01-25 234055.png";
 import {logout} from "./Redux/Slices/AuthSlice"
-//import BuyScrap from "./components/BuyScrap";
-//import Login from "./components/login";
-//import RegisteredAsScrapDealer from "./components/Register_as_scrap_dealer"
 import BuyScrap from "./components/BuyScrap";
 import DragAndDropGame from "./components/DragAndDropGame";
 import Game from "./components/Game";
 import Login from "./components/login";
 import Quiz from "./components/Quiz";
-import RegisteredAsScrapDealer from "./components/Register_as_scrap_dealer";
+import Signup from "./components/Signup"
 import ScrapRates from "./components/scrapRates";
 import ServicesPage from "./components/ServicesPage"; // Ensure the file exists
-
+import Registered_as_scrap_dealer from "./components/Registered_as_scrap_dealer"
+import home_business from "./components/home_business"
+import Muncipality from "./components/Muncipality"
 
 
 function App() {
@@ -85,7 +84,7 @@ function App() {
               <Link  to="/login" >Login</Link>
             </li>
             <li>
-              <Link to="/signup">Sign up</Link>
+              <Link to="/Signup">Sign up</Link>
             </li>
             </>
             )
@@ -142,8 +141,11 @@ function App() {
           <Route path="/scrapRates" element={<ScrapRates />} />
           <Route path="/login" element = {<Login/>}/>
           <Route path="/game" element={ < Game />} />
-          <Route path="/signup" element= {<RegisteredAsScrapDealer/>}/> 
+          <Route path="/signup" element= {<Signup/>}/> 
           <Route path="/BuyScrap" element={<BuyScrap />} />
+          <Route path="/home_business" element={<home_business />} />
+          <Route path="/Muncipality" element={<Muncipality />} />
+          <Route path = "/Registered_as_scrap_dealer" element={<Registered_as_scrap_dealer/>}/>
         </Routes>
 
         {/* Footer */}
