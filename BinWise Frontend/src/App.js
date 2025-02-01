@@ -1,9 +1,7 @@
 import {React } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-//import ServicesPage from "./components/ServicesPage"; // Ensure the file exists
 import "./App.css";
 import { useState , useEffect} from "react";
-//import ScrapRates from "./components/scrapRates";
 import affordable from "./assets/image_copy2.png";
 import { useSelector , useDispatch } from 'react-redux'
 import dustbin from "./assets/image_copy.png";

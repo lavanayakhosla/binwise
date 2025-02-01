@@ -79,9 +79,10 @@ async function handleSubmit(e){
   // };
 
   return (
-    <div className="container">
-      <h2 className="heading">Buy Scrap Materials</h2>
+    
+       
       <form className="form-container" onSubmit={handleSubmit}>
+      <h2 className="heading">Buy Scrap Materials</h2>
         <input type="text" name="name" placeholder="Enter your name" className="input-field" value={formData.name} onChange={handleChange} required />
         <input type="tel" name="phone" placeholder="Enter your phone" className="input-field" value={formData.phone} onChange={handleChange} required />
         <input type="text" name="state" placeholder="Enter your state" className="input-field" value={formData.state} onChange={handleChange} required />
@@ -105,7 +106,7 @@ async function handleSubmit(e){
 
         <div></div><button type="submit" onChange={handleSubmit} className="submit-btn">Place your order</button>
       </form>
-    </div>
+     
   );
 };
 
