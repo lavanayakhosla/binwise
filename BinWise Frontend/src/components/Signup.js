@@ -3,181 +3,120 @@ import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { createAccount } from '../Redux/Slices/ProductSlice';
+<<<<<<< HEAD
 import "./signup.css"; // Import the CSS file
+=======
+import Registerashome from './Register_as_home';
+import RegisterAsMunicipality from './Register_as_municipality';
+import "./signup.css"
+import "./Register_as_scrap_dealer.css"; 
 
-const ScrapDealerForm= () => {
+const ScrapDealerForm = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [selectedRole, setSelectedRole] = useState("");
+  const [signupstate, setsignupstate] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    typeofscrap: '',
+    password: '',
+    photo: null,
+  });
+>>>>>>> 4691138b7cea2100fbe5221b8f8dada4856c85f6
 
-  
-    const navigate= useNavigate()
-    const dispatch=useDispatch()
-    const [selectedRole, setSelectedRole] = useState("");
-    const [signupstate,setsignupstate]= useState({
-        name:'',
-        assignedZone:'',
-        photo:null,
-        typeofscrap:'',
-        status:'',
-        safetyGearIssued:true,
-        phone:'',
-        address:''
-    })
-    function handleinput(e){
-        const {name,value}=e.target;
-        setsignupstate({
-            ...signupstate,
-            [name]:value
-        })
+  function handleInput(e) {
+    const { name, value } = e.target;
+    setsignupstate({
+      ...signupstate,
+      [name]: value,
+    });
+  }
+
+  function handleFileChange(e) {
+    const file = e.target.files[0];
+    if (file) {
+      setsignupstate((prevState) => ({
+        ...prevState,
+        photo: file,
+      }));
     }
-    function handleFileChange(e) {
-      const file = e.target.files[0];
-      if (file) {
-        setsignupstate(prevState => ({
-          ...prevState,
-          photo: file
-        }));
-      }
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!signupstate.name || !signupstate.email || !signupstate.phone || !signupstate.typeofscrap || !signupstate.password || !signupstate.photo) {
+      toast.error("Missing values from the form");
+      return;
     }
-    
-    async function handlesubmit(e){
-        e.preventDefault();
-        console.log(signupstate)
-  
-  
-        if( !signupstate.phone || !signupstate.name || !signupstate.assignedZone  || !signupstate.address) {
-            toast.error("Missing values from the form")
-            return;
-        }
-  
-        if(signupstate.phone.length<10) {
-            toast.error("Mobile number should be atleast 10 character long")
-               return 
-        }
-  
-  
-        const formData = new FormData();
-      formData.append("name", signupstate.name);
-      formData.append("assignedZone", signupstate.assignedZone);
-      formData.append("status", signupstate.status);
-      formData.append("safetyGearIssued", signupstate.safetyGearIssued);
-      formData.append("phone", signupstate.phone);
-      formData.append("address", signupstate.address);
-      formData.append("photo", signupstate.photo); // Append file
-      formData.append("typeofscrap", signupstate.typeofscrap); // Append file
-        
-      console.log("signup state",signupstate)
-      console.log("form data",formData)
-        
-            
-        const apiresponse= await dispatch(createAccount(formData));
-            if(apiresponse.payload.data.success){
-                navigate('/ScrapRates');
-            }
-  
-        console.log("api response is",apiresponse)
+
+    if (signupstate.phone.length < 10) {
+      toast.error("Mobile number should be at least 10 characters long");
+      return;
     }
-  
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
+    if (!passwordRegex.test(signupstate.password)) {
+      toast.error("Password must be at least 6 characters long, include one uppercase letter, one number, and one special character");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", signupstate.name);
+    formData.append("email", signupstate.email);
+    formData.append("phone", signupstate.phone);
+    formData.append("typeofscrap", signupstate.typeofscrap);
+    formData.append("password", signupstate.password);
+    formData.append("photo", signupstate.photo);
+
+    const apiresponse = await dispatch(createAccount(formData));
+    if (apiresponse.payload.data.success) {
+      navigate('/ScrapRates');
+    }
+  }
+
   const handleRegisterClick = (role) => {
     setSelectedRole(role);
   };
+
   const renderRegisterForm = () => {
     switch (selectedRole) {
       case "scrapdealer":
         return (
-            <div className="continer">
-      
-            <form className="scrap-form">
-            <h2 className="form-title">Become a Registered Scrap Dealer</h2>
-              <label>Name</label>
-              <input type="text" name="name" onChange={handleinput} required placeholder="Enter your name" />
-      
-              <label>Phone Number</label>
-              <input type='tel' name="phone" onChange={handleinput} placeholder="Enter your Phone Number" />
-      
-              <label>Address</label>
-              <input type="text" name="address" onChange={handleinput} placeholder="Enter your Address" />
-      
-              <label>Type of Scrap</label>
-              <input type="text" name="typeofscrap" required onChange={handleinput} placeholder="Enter Type of Scrap Material (Plastic/Paper/Metal)" />
-      
-              <label>Assigned Zone</label>
-              <input type="text" name="assignedZone" required onChange={handleinput} placeholder="Enter Assigned Zone" />
-      
-              <label>Upload Aadhar Card</label>
+          <div className="container">
+            <form className="scrap-form" onSubmit={handleSubmit}>
+              <h2 className="form-title">Become a Registered Scrap Dealer</h2>
+              
+              <label>Profile Picture</label>
               <input type="file" name="photo" onChange={handleFileChange} accept="image/*" required />
-      
-              <label>Do you have issued safety gear?</label>
-              <input type="text" name="safetyGearIssued" required onChange={handleinput} placeholder="Yes/No" />
-      
-              <button type="submit" onClick={handlesubmit} className="register-btn">Register</button>
+              
+              <label>Name</label>
+              <input type="text" name="name" onChange={handleInput} required placeholder="Enter your name" />
+              
+              <label>Email</label>
+              <input type="email" name="email" onChange={handleInput} required placeholder="Enter your email" />
+              
+              <label>Phone Number</label>
+              <input type="tel" name="phone" onChange={handleInput} required placeholder="Enter your phone number" />
+              
+              <label>Type of Scrap</label>
+              <input type="text" name="typeofscrap" onChange={handleInput} required placeholder="Enter Type of Scrap Material (Plastic/Paper/Metal)" />
+              
+              <label>Password</label>
+              <input type="password" name="password" onChange={handleInput} required placeholder="Enter your password" />
+              
+              <button type="submit" className="register-btn">Register</button>
             </form>
           </div>
         );
       case "municipality":
-        return (
-            <div className="continer">
-      
-            <form className="scrap-form">
-            <h2 className="form-title">Register as a Municipality</h2>
-              <label>Name</label>
-              <input type="text" name="name" onChange={handleinput} required placeholder="Enter your name" />
-      
-              <label>Phone Number</label>
-              <input type='tel' name="phone" onChange={handleinput} placeholder="Enter your Phone Number" />
-      
-              <label>Address</label>
-              <input type="text" name="address" onChange={handleinput} placeholder="Enter your Address" />
-      
-              <label>Type of Scrap</label>
-              <input type="text" name="typeofscrap" required onChange={handleinput} placeholder="Enter Type of Scrap Material (Plastic/Paper/Metal)" />
-      
-              <label>Assigned Zone</label>
-              <input type="text" name="assignedZone" required onChange={handleinput} placeholder="Enter Assigned Zone" />
-      
-              <label>Upload Aadhar Card</label>
-              <input type="file" name="photo" onChange={handleFileChange} accept="image/*" required />
-      
-              <label>Do you have issued safety gear?</label>
-              <input type="text" name="safetyGearIssued" required onChange={handleinput} placeholder="Yes/No" />
-      
-              <button type="submit" onClick={handlesubmit} className="register-btn">Register</button>
-            </form>
-          </div>
-        );
+        return <RegisterAsMunicipality />;
       case "homebusiness":
-        return (
-            <div className="continer">
-      
-            <form className="scrap-form">
-            <h2 className="form-title">Register as a Business/Home</h2>
-              <label>Name</label>
-              <input type="text" name="name" onChange={handleinput} required placeholder="Enter your name" />
-      
-              <label>Phone Number</label>
-              <input type='tel' name="phone" onChange={handleinput} placeholder="Enter your Phone Number" />
-      
-              <label>Address</label>
-              <input type="text" name="address" onChange={handleinput} placeholder="Enter your Address" />
-      
-              <label>Type of Scrap</label>
-              <input type="text" name="typeofscrap" required onChange={handleinput} placeholder="Enter Type of Scrap Material (Plastic/Paper/Metal)" />
-      
-              <label>Assigned Zone</label>
-              <input type="text" name="assignedZone" required onChange={handleinput} placeholder="Enter Assigned Zone" />
-      
-              <label>Upload Aadhar Card</label>
-              <input type="file" name="photo" onChange={handleFileChange} accept="image/*" required />
-      
-              <label>Do you have issued safety gear?</label>
-              <input type="text" name="safetyGearIssued" required onChange={handleinput} placeholder="Yes/No" />
-      
-              <button type="submit" onClick={handlesubmit} className="register-btn">Register</button>
-            </form>
-          </div>
-        );
+        return <Registerashome />;
       default:
         return (
-            <div className="container">
-            <div className="all-optns">
+          <div className="container">
             <h2>Select Your Role to Register</h2>
             <button className="select-btn" onClick={() => handleRegisterClick("scrapdealer")}>
               Scrap Dealer
@@ -188,16 +127,12 @@ const ScrapDealerForm= () => {
             <button className="select-btn" onClick={() => handleRegisterClick("homebusiness")}>
               Home/Business
             </button>
-            </div>
           </div>
         );
-        
     }
   };
 
   return <div>{renderRegisterForm()}</div>;
 };
-
-
 
 export default ScrapDealerForm;
